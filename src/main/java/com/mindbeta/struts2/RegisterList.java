@@ -6,19 +6,32 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 /**
- * List all registered users from postgresql.
+ * List all registered users from PostgreSQL.
  * @author Kirk Harr
  */
 public class RegisterList {
     ArrayList<Person> list = new ArrayList<Person>();
 
+    /**
+     * The list of Person objects that have already been registered.
+     * @return The list of Person objects that are already registered.
+     */
     public ArrayList<Person> getList(){
         return list;
     }
 
+    /**
+     * Update The list of Person objects that have already been registered.
+     * @param list The list of Person objects that have already been registered.
+     */
     public void setList(ArrayList<Person> list){
         this.list = list;
     }
+
+    /**
+     * Lists the registered Person objects from the data layer in PostgreSQL.
+     * @return Status code of the list process, "success" on a successful database connection.
+     */
     public String execute(){
         try{
             Class.forName("org.postgresql.Driver");

@@ -1,14 +1,11 @@
 package com.mindbeta.struts2;
 
-/**
- * Created by daehlie on 11/10/15.
- */
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Acts as a controller to handle actions
  * related to registering a user.
- * @author Kirk harr
+ * @author Kirk Harr
  *
  */
 public class Register extends ActionSupport {
@@ -17,7 +14,11 @@ public class Register extends ActionSupport {
 
     private Person personBean;
 
-
+    /**
+     * Struts method for completing the registration of a person.
+     * @return The string which represents either the success or failure of the registration.
+     * @throws Exception An error during the registration process.
+     */
     public String execute() throws Exception {
 
         //call Service class to store personBean's state in database
@@ -29,6 +30,9 @@ public class Register extends ActionSupport {
 
     }
 
+    /**
+     * Completes input validation for each form field.
+     */
     public void validate(){
 
         if ( personBean.getFirstName().length() == 0 ){
@@ -53,13 +57,20 @@ public class Register extends ActionSupport {
 
     }
 
-
+    /**
+     * Retrieves the Java bean containing the Person object.
+     * @return The Person object.
+     */
     public Person getPersonBean() {
 
         return personBean;
 
     }
 
+    /**
+     * Sets the Person object to be contained in the java bean.
+     * @param person The Person object.
+     */
     public void setPersonBean(Person person) {
 
         personBean = person;
